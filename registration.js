@@ -120,13 +120,12 @@ class RegistrationManager {
             // Reset file upload when hiding payment section
             const screenshotInput = document.getElementById('paymentScreenshot');
             const fileNameElement = document.getElementById('fileName');
-            const imagePreview = document.getElementById('imagePreview');
-            const uploadError = document.getElementById('uploadError');
 
             if (screenshotInput) screenshotInput.value = '';
-            if (fileNameElement) fileNameElement.textContent = 'No file selected';
-            if (imagePreview) imagePreview.style.display = 'none';
-            if (uploadError) uploadError.style.display = 'none';
+            if (fileNameElement) {
+                fileNameElement.textContent = 'No file selected';
+                fileNameElement.style.color = '#666';
+            }
         }
     }
 
@@ -141,56 +140,6 @@ class RegistrationManager {
         return totalFee;
     }
 
-    // Handle screenshot file upload and preview
-    previewScreenshot(input) {
-        const fileNameElement = document.getElementById('fileName');
-        const imagePreview = document.getElementById('imagePreview');
-        const previewImg = document.getElementById('previewImg');
-        const uploadError = document.getElementById('uploadError');
-
-        // Hide error message initially
-        uploadError.style.display = 'none';
-        uploadError.textContent = '';
-
-        if (input.files && input.files[0]) {
-            const file = input.files[0];
-
-            // Validate file type
-            if (!file.type.startsWith('image/')) {
-                uploadError.textContent = 'Please select a valid image file (PNG, JPG, JPEG, etc.)';
-                uploadError.style.display = 'block';
-                input.value = '';
-                fileNameElement.textContent = 'No file selected';
-                imagePreview.style.display = 'none';
-                return;
-            }
-
-            // Validate file size (max 5MB)
-            const maxSize = 5 * 1024 * 1024; // 5MB in bytes
-            if (file.size > maxSize) {
-                uploadError.textContent = 'File size must be less than 5MB';
-                uploadError.style.display = 'block';
-                input.value = '';
-                fileNameElement.textContent = 'No file selected';
-                imagePreview.style.display = 'none';
-                return;
-            }
-
-            // Update file name display
-            fileNameElement.textContent = file.name;
-
-            // Create and show preview
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                previewImg.src = e.target.result;
-                imagePreview.style.display = 'block';
-            };
-            reader.readAsDataURL(file);
-        } else {
-            fileNameElement.textContent = 'No file selected';
-            imagePreview.style.display = 'none';
-        }
-    }
 
     updateTotalFee() {
         const checkedBoxes = document.querySelectorAll('input[name="events"]:checked');
@@ -287,13 +236,12 @@ class RegistrationManager {
         // Reset file upload
         const screenshotInput = document.getElementById('paymentScreenshot');
         const fileNameElement = document.getElementById('fileName');
-        const imagePreview = document.getElementById('imagePreview');
-        const uploadError = document.getElementById('uploadError');
 
         if (screenshotInput) screenshotInput.value = '';
-        if (fileNameElement) fileNameElement.textContent = 'No file selected';
-        if (imagePreview) imagePreview.style.display = 'none';
-        if (uploadError) uploadError.style.display = 'none';
+        if (fileNameElement) {
+            fileNameElement.textContent = 'No file selected';
+            fileNameElement.style.color = '#666';
+        }
 
         // Update register buttons for selected events
         this.updateRegisterButtons(selectedEvents);
@@ -564,10 +512,12 @@ class RegistrationManager {
         input.addEventListener('focus', updateLabelPosition);
         input.addEventListener('blur', updateLabelPosition);
         input.addEventListener('input', updateLabelPosition);
-        
+
         // Initial position
         updateLabelPosition();
     }
+
+
 }
 
 // Initialize registration manager
@@ -614,9 +564,51 @@ function togglePaymentDetails() {
     }
 }
 
-// Global function for screenshot preview
-function previewScreenshot(input) {
-    if (registrationManager) {
-        registrationManager.previewScreenshot(input);
+// Global function for file upload handling
+function handleFileUpload(input) {
+    console.log('[DEBUG] handleFileUpload called');
+    console.log('[DEBUG] Input files:', input.files);
+
+    const fileNameElement = document.getElementById('fileName');
+
+    if (input.files && input.files[0]) {
+        const file = input.files[0];
+        console.log('[DEBUG] Selected file:', file.name, 'Type:', file.type, 'Size:', file.size);
+
+        // Validate file type
+        if (!file.type.startsWith('image/')) {
+            console.log('[DEBUG] Invalid file type');
+            alert('Please select a valid image file (PNG, JPG, JPEG, etc.)');
+            input.value = '';
+            fileNameElement.textContent = 'No file selected';
+            fileNameElement.style.color = '#dc3545'; // Red color for error
+            return;
+        }
+
+        // Validate file size (max 5MB)
+        const maxSize = 5 * 1024 * 1024; // 5MB in bytes
+        if (file.size > maxSize) {
+            console.log('[DEBUG] File too large');
+            alert('File size must be less than 5MB');
+            input.value = '';
+            fileNameElement.textContent = 'No file selected';
+            fileNameElement.style.color = '#dc3545'; // Red color for error
+            return;
+        }
+
+        console.log('[DEBUG] File validation passed');
+        fileNameElement.textContent = file.name;
+        fileNameElement.style.color = '#28a745'; // Green color for success
+
+        // Add visual feedback for mobile
+        if (window.innerWidth <= 768) {
+            fileNameElement.style.fontWeight = 'bold';
+        }
+    } else {
+        console.log('[DEBUG] No file selected');
+        fileNameElement.textContent = 'No file selected';
+        fileNameElement.style.color = '#666'; // Default color
+        fileNameElement.style.fontWeight = 'normal';
     }
 }
+

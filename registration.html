@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Event Registration - Sparx Engineers Week 2025</title>
-    
+
     <!-- PWA Meta Tags -->
-    <meta name="description" content="Register for Sparx Engineers Week 2025 events - Technical and Non-Technical competitions">
+    <meta name="description"
+        content="Register for Sparx Engineers Week 2025 events - Technical and Non-Technical competitions">
     <meta name="theme-color" content="#0A2540">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="Sparx 2025 Registration">
 
-    
+
     <link rel="stylesheet" href="styles.css">
     <style>
         .registration-hero {
@@ -22,18 +24,18 @@
             padding: 8rem 0 4rem 0;
             text-align: center;
         }
-        
+
         .registration-hero h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
             font-weight: 700;
         }
-        
+
         .registration-hero p {
             font-size: 1.2rem;
             opacity: 0.9;
         }
-        
+
         .back-to-home {
             display: inline-block;
             margin-top: 2rem;
@@ -45,54 +47,54 @@
             border: 2px solid rgba(255, 255, 255, 0.3);
             transition: all 0.3s ease;
         }
-        
+
         .back-to-home:hover {
             background: rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
         }
-        
+
         .registration-page {
             padding: 4rem 0;
             background: #f8f9fa;
         }
-        
+
         .registration-container {
             max-width: 800px;
             margin: 0 auto;
         }
-        
+
         .registration-form {
             background: white;
             padding: 3rem;
             border-radius: 20px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
         }
-        
+
         .form-header {
             text-align: center;
             margin-bottom: 2rem;
         }
-        
+
         .form-header h2 {
             color: #333;
             margin-bottom: 0.5rem;
         }
-        
+
         .form-header p {
             color: #666;
             font-size: 1.1rem;
         }
-        
+
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1.5rem;
         }
-        
+
         .form-group.full-width {
             grid-column: 1 / -1;
         }
-        
+
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
@@ -100,7 +102,7 @@
             color: #333;
             font-size: 1rem;
         }
-        
+
         .form-group input,
         .form-group select,
         .form-group textarea {
@@ -112,7 +114,7 @@
             transition: all 0.3s ease;
             background: white;
         }
-        
+
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
@@ -120,14 +122,14 @@
             border-color: #0A2540;
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
-        
+
         .checkbox-group {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1rem;
             margin-top: 1rem;
         }
-        
+
         .checkbox-item {
             display: flex;
             align-items: center;
@@ -137,22 +139,22 @@
             border-radius: 8px;
             transition: all 0.3s ease;
         }
-        
+
         .checkbox-item:hover {
             background: #e9ecef;
         }
-        
+
         .checkbox-item input[type="checkbox"] {
             width: auto;
             margin: 0;
         }
-        
+
         .checkbox-item label {
             margin: 0;
             cursor: pointer;
             font-weight: 500;
         }
-        
+
         .submit-btn {
             width: 100%;
             padding: 1.25rem;
@@ -166,18 +168,18 @@
             transition: all 0.3s ease;
             margin-top: 2rem;
         }
-        
+
         .submit-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
         }
-        
+
         .submit-btn:disabled {
             opacity: 0.7;
             cursor: not-allowed;
             transform: none;
         }
-        
+
         .success-message {
             display: none;
             background: #d4edda;
@@ -305,61 +307,92 @@
             color: #475569;
         }
 
-        .file-input {
-            display: none;
-        }
-
-        .file-upload-btn {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background: #0A2540;
-            color: white;
+        .file-input-mobile {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: auto;
+            min-height: 48px;
+            background: transparent;
+            border: none;
             border-radius: 8px;
             cursor: pointer;
             font-size: 0.9rem;
             transition: all 0.3s ease;
+            margin-bottom: 0.75rem;
+            overflow: hidden;
+            -webkit-tap-highlight-color: rgba(10, 37, 64, 0.3);
+            tap-highlight-color: rgba(10, 37, 64, 0.3);
+        }
+
+        .file-input-mobile::-webkit-file-upload-button {
+            visibility: hidden;
+            width: 0;
+            height: 0;
+            padding: 0;
+            margin: 0;
             border: none;
         }
 
-        .file-upload-btn:hover {
+        .file-input-mobile::before {
+            content: 'Upload';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0A2540;
+            color: white;
+            border-radius: 8px;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            line-height: 1.2;
+            text-align: center;
+            white-space: nowrap;
+            box-sizing: border-box;
+            min-height: 48px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .file-input-mobile:hover::before {
             background: #1a365d;
-            transform: translateY(-1px);
+        }
+
+        /* Firefox specific styles */
+        @-moz-document url-prefix() {
+            .file-input-mobile {
+                background: #0A2540;
+                color: white;
+                border-radius: 8px;
+                padding: 0.75rem 1.5rem;
+                font-size: 0.9rem;
+                font-weight: 600;
+                cursor: pointer;
+                min-height: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                line-height: 1.2;
+                box-sizing: border-box;
+            }
+
+            .file-input-mobile::before {
+                display: none;
+            }
         }
 
         .file-name {
-            margin-left: 1rem;
+            display: block;
             font-size: 0.9rem;
             color: #666;
-        }
-
-        .image-preview {
-            display: none;
-            margin-top: 1rem;
             text-align: center;
-        }
-
-        .preview-image {
-            max-width: 200px;
-            max-height: 200px;
-            border-radius: 8px;
-            border: 2px solid #e2e8f0;
-        }
-
-        .preview-text {
-            margin: 0.5rem 0 0 0;
-            font-size: 0.8rem;
-            color: #666;
-        }
-
-        .upload-error {
-            display: none;
-            margin-top: 0.5rem;
-            padding: 0.5rem;
-            background: #fee2e2;
-            border: 1px solid #fecaca;
-            border-radius: 4px;
-            color: #dc2626;
-            font-size: 0.8rem;
+            word-break: break-all;
         }
 
         /* Dark Theme Upload Styles */
@@ -376,33 +409,31 @@
             color: #94a3b8;
         }
 
-        .dark-theme .file-upload-btn {
+        .dark-theme .file-input-mobile::before {
             background: #1e293b;
             color: #e2e8f0;
         }
 
-        .dark-theme .file-upload-btn:hover {
+        .dark-theme .file-input-mobile:hover::before {
             background: #334155;
+        }
+
+        /* Firefox dark theme */
+        @-moz-document url-prefix() {
+            .dark-theme .file-input-mobile {
+                background: #1e293b;
+                color: #e2e8f0;
+            }
+
+            .dark-theme .file-input-mobile:hover {
+                background: #334155;
+            }
         }
 
         .dark-theme .file-name {
             color: #94a3b8;
         }
 
-        .dark-theme .preview-image {
-            border-color: #2d3748;
-        }
-
-        .dark-theme .preview-text {
-            color: #94a3b8;
-        }
-
-        .dark-theme .upload-error {
-            background: #451a1a;
-            border-color: #7f1d1d;
-            color: #fca5a5;
-        }
-        
         .events-preview {
             background: white;
             padding: 2rem;
@@ -410,54 +441,54 @@
             margin-bottom: 2rem;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
-        
+
         .events-preview h3 {
             color: #333;
             margin-bottom: 1rem;
             text-align: center;
         }
-        
+
         .events-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
         }
-        
+
         .event-category {
             background: #f8f9fa;
             border-radius: 10px;
             padding: 1.5rem;
             border-left: 4px solid #0A2540;
         }
-        
+
         .category-title {
             color: #0A2540;
             font-weight: 600;
             margin-bottom: 1rem;
             font-size: 1.1rem;
         }
-        
+
         .event-list {
             list-style: none;
             padding: 0;
             margin: 0;
         }
-        
+
         .event-list li {
             padding: 0.5rem 0;
             border-bottom: 1px solid #e0e0e0;
             color: #555;
         }
-        
+
         .event-list li:last-child {
             border-bottom: none;
         }
-        
+
         .required-field::after {
             content: " *";
             color: #dc3545;
         }
-        
+
         .form-note {
             background: #e3f2fd;
             color: #1565c0;
@@ -466,12 +497,12 @@
             margin-bottom: 2rem;
             border-left: 4px solid #2196f3;
         }
-        
+
         .form-note p {
             margin: 0;
             font-size: 0.95rem;
         }
-        
+
         /* Mobile Form Validation Styles */
         .field-error {
             color: #dc3545;
@@ -480,30 +511,31 @@
             display: block;
             animation: slideInError 0.3s ease;
         }
-        
+
         @keyframes slideInError {
             from {
                 opacity: 0;
                 transform: translateY(-10px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         .form-group input.error,
         .form-group select.error,
         .form-group textarea.error {
             border-color: #dc3545;
             box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
         }
-        
+
         .floating-label-container {
             position: relative;
             width: 100%;
         }
-        
+
         .floating-label-container label {
             position: absolute;
             left: 1rem;
@@ -516,23 +548,23 @@
             background: var(--input-bg, white);
             font-size: 1rem;
         }
-        
-        .floating-label-container input:focus ~ label,
-        .floating-label-container input:not(:placeholder-shown) ~ label {
+
+        .floating-label-container input:focus~label,
+        .floating-label-container input:not(:placeholder-shown)~label {
             top: 0;
             transform: translateY(-50%) scale(0.85);
             background: var(--input-bg, white);
         }
-        
+
         .dark-theme .floating-label-container label {
             background: var(--dark-input-bg, #2d2d2d);
         }
-        
-        .dark-theme .floating-label-container input:focus ~ label,
-        .dark-theme .floating-label-container input:not(:placeholder-shown) ~ label {
+
+        .dark-theme .floating-label-container input:focus~label,
+        .dark-theme .floating-label-container input:not(:placeholder-shown)~label {
             background: var(--dark-input-bg, #2d2d2d);
         }
-        
+
         /* Form Label Dark Mode Styles */
         .dark-theme .form-group label {
             color: #e0e0e0;
@@ -567,25 +599,25 @@
             color: #e0e0e0 !important;
             background: #16213e00 !important;
         }
-        
+
         /* Mobile Touch Feedback */
         @media (hover: none) and (pointer: coarse) {
             .checkbox-item:active {
                 transform: scale(0.98);
                 background: #e3f2fd;
             }
-            
+
             .submit-btn:active {
                 transform: scale(0.98);
             }
-            
+
             .form-group input:focus,
             .form-group select:focus,
             .form-group textarea:focus {
                 transform: scale(1.02);
             }
         }
-        
+
         @media (max-width: 768px) {
             .form-row {
                 grid-template-columns: 1fr;
@@ -617,51 +649,144 @@
                 margin-bottom: 1.25rem;
             }
 
-            .file-upload-btn {
+            .file-input-mobile {
+                position: relative;
                 display: block;
                 width: 100%;
-                padding: 1rem 1.5rem;
+                height: auto;
+                min-height: 56px;
+                background: transparent;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
                 font-size: 1rem;
                 margin-bottom: 0.75rem;
+                overflow: hidden;
+                -webkit-appearance: none;
+                appearance: none;
+            }
+
+            .file-input-mobile::-webkit-file-upload-button {
+                visibility: hidden;
+                width: 0;
+                height: 0;
+                padding: 0;
+                margin: 0;
+                border: none;
+            }
+
+            .file-input-mobile::before {
+                content: 'Upload';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #0A2540;
+                color: white;
+                border-radius: 8px;
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+                font-weight: 600;
+                line-height: 1.2;
                 text-align: center;
-                min-height: 48px; /* Minimum touch target size */
+                white-space: nowrap;
+                box-sizing: border-box;
+                min-height: 56px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .file-input-mobile:hover::before {
+                background: #1a365d;
             }
 
             .file-name {
                 display: block;
-                margin-left: 0;
                 margin-top: 0.5rem;
                 font-size: 0.85rem;
                 word-break: break-all;
                 text-align: center;
             }
 
-            .file-upload-area {
-                margin-bottom: 1rem;
+            /* Additional mobile file input fixes */
+            .file-input-mobile {
+                position: relative;
+                z-index: 10;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
             }
 
-            .preview-image {
-                max-width: 150px;
-                max-height: 150px;
+            .file-input-mobile:focus {
+                outline: 2px solid #0A2540;
+                outline-offset: 2px;
             }
 
-            .preview-text {
-                font-size: 0.75rem;
-                margin-top: 0.75rem;
+            /* Firefox mobile specific */
+            @-moz-document url-prefix() {
+                .file-input-mobile {
+                    background: #0A2540;
+                    color: white;
+                    border-radius: 8px;
+                    padding: 1rem 1.5rem;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    width: 100%;
+                    min-height: 56px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    line-height: 1.2;
+                    box-sizing: border-box;
+                }
+
+                .file-input-mobile::before {
+                    display: none;
+                }
             }
 
-            .upload-error {
-                font-size: 0.8rem;
-                padding: 0.75rem;
-                margin-top: 0.75rem;
+            /* Ensure file input is properly accessible on touch devices */
+            @media (hover: none) and (pointer: coarse) {
+                .file-input-mobile::before {
+                    background: #0A2540;
+                    min-height: 56px;
+                }
+
+                .file-input-mobile:active::before {
+                    background: #094477;
+                    transform: scale(0.98);
+                }
+
+                .file-input-mobile {
+                    -webkit-tap-highlight-color: rgba(10, 37, 64, 0.3);
+                    tap-highlight-color: rgba(10, 37, 64, 0.3);
+                    min-height: 56px;
+                }
+
+                /* Firefox on touch devices */
+                @-moz-document url-prefix() {
+                    .file-input-mobile {
+                        min-height: 56px;
+                    }
+
+                    .file-input-mobile:active {
+                        background: #094477;
+                        transform: scale(0.98);
+                    }
+                }
             }
 
-            .image-preview {
-                margin-top: 1.25rem;
-            }
         }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <header>
@@ -685,10 +810,10 @@
                 </button>
             </div>
         </nav>
-        
+
         <!-- Mobile Menu Overlay -->
         <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="toggleMobileMenu()"></div>
-        
+
         <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobileMenu">
             <div class="mobile-menu-header">
@@ -741,23 +866,25 @@
                                     <label for="fullName" class="required-field">Full Name</label>
                                 </div>
                             </div>
-                            
+
                             <div class="form-group">
                                 <div class="floating-label-container">
                                     <input type="email" id="email" name="email" required placeholder=" ">
                                     <label for="email" class="required-field">Email Address</label>
                                 </div>
+                                
                             </div>
                         </div>
-                        
+
                         <div class="form-row">
                             <div class="form-group">
                                 <div class="floating-label-container">
-                                    <input type="tel" id="phone" name="phone" required pattern="[6-9][0-9]{9}" maxlength="10" placeholder=" ">
+                                    <input type="tel" id="phone" name="phone" required pattern="[6-9][0-9]{9}"
+                                        maxlength="10" placeholder=" ">
                                     <label for="phone" class="required-field">Phone Number</label>
                                 </div>
                             </div>
-                            
+
                             <div class="form-group">
                                 <div class="floating-label-container">
                                     <input type="text" id="college" name="college" required placeholder=" ">
@@ -765,7 +892,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="year" class="required-field">Year of Study</label>
@@ -779,7 +906,7 @@
                                     <option value="postgrad">Post Graduate</option>
                                 </select>
                             </div>
-                            
+
                             <div class="form-group">
                                 <div class="floating-label-container">
                                     <input type="text" id="branch" name="branch" required placeholder=" ">
@@ -787,7 +914,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="form-group full-width">
                             <label class="required-field">Select Events to Register</label>
                             <div class="checkbox-group" id="eventsList">
@@ -816,7 +943,8 @@
                                 <p><strong>QR Code:</strong></p>
                                 <div class="qr-code">
                                     <!-- QR Code Placeholder -->
-                                    <div style="width: 150px; height: 150px; background: #f0f0f0; border: 2px solid #ccc; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                                    <div
+                                        style="width: 150px; height: 150px; background: #f0f0f0; border: 2px solid #ccc; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
                                         <div style="text-align: center; color: #666; font-size: 12px;">
                                             <div style="font-size: 24px; margin-bottom: 5px;">📱</div>
                                             <div>QR Code</div>
@@ -829,29 +957,19 @@
                                     <p class="upload-description">After completing the UPI payment, upload a screenshot of the transaction for verification.</p>
 
                                     <div class="file-upload-area">
-                                        <input type="file" id="paymentScreenshot" name="paymentScreenshot" accept="image/*" onchange="previewScreenshot(this)" class="file-input" required>
-                                        <label for="paymentScreenshot" class="file-upload-btn">
-                                            📎 Choose Screenshot File
-                                        </label>
+                                        <input type="file" id="paymentScreenshot" name="paymentScreenshot" accept="image/*" onchange="handleFileUpload(this)" class="file-input-mobile" required>
                                         <span id="fileName" class="file-name">No file selected</span>
                                     </div>
-
-                                    <div id="imagePreview" class="image-preview">
-                                        <img id="previewImg" class="preview-image" alt="Payment Screenshot Preview">
-                                        <p class="preview-text">Screenshot Preview</p>
-                                    </div>
-
-                                    <div id="uploadError" class="upload-error"></div>
                                 </div>
-                                <p style="margin-top: 1rem; font-size: 0.9rem; color: #dc2626;">⚠️ Please complete the payment before submitting the form.</p>
                             </div>
                         </div>
-                        
+
                         <div class="form-group full-width">
                             <label for="teamMembers">Team Members (if applicable)</label>
-                            <textarea id="teamMembers" name="teamMembers" rows="4" placeholder="Enter team member names and contact details"></textarea>
+                            <textarea id="teamMembers" name="teamMembers" rows="4"
+                                placeholder="Enter team member names and contact details"></textarea>
                         </div>
-                        
+
                         <button type="submit" class="submit-btn" id="submitBtn">Submit Registration</button>
                     </form>
                 </div>
@@ -863,7 +981,8 @@
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">Need Help?</h2>
-            <p style="font-size: 1.1rem; margin-bottom: 2rem;">Contact the EMAS Committee for registration assistance</p>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem;">Contact the EMAS Committee for registration assistance
+            </p>
             <div class="contact-info">
                 <div class="contact-item">
                     <h4>Event Coordinator</h4>
@@ -894,36 +1013,36 @@
             // Populate technical events
             const technicalList = document.getElementById('technicalEventsList');
             if (technicalList) {
-                technicalList.innerHTML = eventsData.technical.map(event => 
+                technicalList.innerHTML = eventsData.technical.map(event =>
                     `<li>${event.name} - ${event.time}</li>`
                 ).join('');
             }
-            
+
             // Populate non-technical events
             const nonTechnicalList = document.getElementById('nonTechnicalEventsList');
             if (nonTechnicalList) {
-                nonTechnicalList.innerHTML = eventsData.nonTechnical.map(event => 
+                nonTechnicalList.innerHTML = eventsData.nonTechnical.map(event =>
                     `<li>${event.name} - ${event.time}</li>`
                 ).join('');
             }
         }
-        
+
         // Initialize registration page
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Ensure theme is applied after page loads
             if (typeof loadSavedTheme === 'function') {
                 loadSavedTheme();
             }
-            
+
             populateEventsPreview();
         });
-        
+
         // Test function for dark mode
         function testDarkMode() {
             console.log('Testing dark mode...');
             console.log('Current body classes:', document.body.className);
             console.log('Current localStorage theme:', localStorage.getItem('sparx-theme'));
-            
+
             // Toggle theme manually
             if (document.body.classList.contains('dark-theme')) {
                 document.body.classList.remove('dark-theme');
@@ -934,7 +1053,7 @@
                 localStorage.setItem('sparx-theme', 'dark');
                 console.log('Switched to dark theme');
             }
-            
+
             // Force a repaint
             document.body.style.display = 'none';
             document.body.offsetHeight;
@@ -942,4 +1061,5 @@
         }
     </script>
 </body>
+
 </html>
