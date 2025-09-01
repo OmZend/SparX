@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - Sparx 2025</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0A2540">
+    <link rel="icon" href="icon-192x192.png" type="image/png">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Sparx 2025</div>
+                <div class="nav-desktop">
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="registration.html">Register</a></li>
+                    </ul>
+                    <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark</button>
+                </div>
+                <div class="nav-mobile">
+                    <button class="mobile-theme" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button>
+                    <button class="hamburger-menu" onclick="toggleMobileMenu()" aria-label="Menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </nav>
+            <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="toggleMobileMenu()"></div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-header">
+                <div class="logo">SPARX</div>
+                <button class="close-mobile-menu" onclick="toggleMobileMenu()">&times;</button>
+            </div>
+            <div class="mobile-menu-content">
+                <ul class="mobile-nav-links">
+                    <li><a href="index.html" onclick="toggleMobileMenu()">Home</a></li>
+                    <li><a href="about.html" onclick="toggleMobileMenu()">About</a></li>
+                    <li><a href="#events" onclick="toggleMobileMenu()">Events</a></li>
+                    <li><a href="schedule.html" onclick="toggleMobileMenu()">Schedule</a></li>
+                    <li><a href="registration.html" onclick="toggleMobileMenu()">Register</a></li>
+
+                </ul>
+            </div>
+        </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" onclick="closeMobileMenu()"></div>
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <div class="logo">Sparx 2025</div>
+            <button class="close-mobile-menu" onclick="closeMobileMenu()">&times;</button>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="index.html" onclick="closeMobileMenu()">Home</a></li>
+            <li><a href="events.html" onclick="closeMobileMenu()">Events</a></li>
+            <li><a href="schedule.html" onclick="closeMobileMenu()">Schedule</a></li>
+            <li><a href="registration.html" onclick="closeMobileMenu()">Register</a></li>
+        </ul>
+    </div>
+
+    <main class="events-page">
+        <!-- Events Hero Section -->
+        <section class="events-hero">
+            <div class="container">
+                <div class="events-hero-content">
+                    <h1>Sparx 2025 Events</h1>
+                    <p class="events-subtitle">Discover exciting competitions, workshops, and activities across multiple categories. Join us for an unforgettable experience!</p>
+                    <div class="events-stats">
+                        <div class="stat-card">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Events</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">15</div>
+                            <div class="stat-label">Categories</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Days</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Filter Section -->
+        <section class="events-filter">
+            <div class="container">
+                <h2>Browse by Category</h2>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" onclick="filterEvents('all')">All Events</button>
+                    <button class="filter-btn" onclick="filterEvents('technical')">Technical</button>
+                    <button class="filter-btn" onclick="filterEvents('cultural')">Cultural</button>
+                    <button class="filter-btn" onclick="filterEvents('gaming')">Gaming</button>
+                    <button class="filter-btn" onclick="filterEvents('sports')">Sports</button>
+                    <button class="filter-btn" onclick="filterEvents('workshops')">Workshops</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Grid Section -->
+        <section class="events-showcase">
+            <div class="container">
+                <div class="events-detailed-grid">
+                    <!-- Technical Events -->
+                    <div class="event-category-detailed" data-category="technical">
+                        <div class="category-header-detailed">
+                            <div class="category-icon">💻</div>
+                            <h3 class="category-title">Technical Events</h3>
+                            <p class="category-description">Code, innovate, and compete in cutting-edge technical challenges</p>
+                        </div>
+                        <div class="event-list-detailed">
+                            <div class="event-item-detailed">
+                                <div class="event-main-info">
+                                    <h4>Hackathon</h4>
+                                    <p class="event-description">24-hour coding marathon to build innovative solutions</p>
+                                    <div class="event-meta">
+                                        <span class="event-time">📅 Day 1-2 | ⏰ 6:00 PM - 6:00 PM</span>
+                                        <span class="event-prize">🏆 ₹50,000</span>
+                                    </div>
+                                </div>
+                                <div class="event-actions">
+                                    <button class="register-btn" onclick="openRegistrationModal('hackathon')">Register</button>
+                                    <button class="info-btn" onclick="showEventDetails('hackathon')">Details</button>
+                                </div>
+                            </div>
+                            <div class="event-item-detailed">
+                                <div class="event-main-info">
+                                    <h4>Web Development Contest</h4>
+                                    <p class="event-description">Create stunning websites with modern technologies</p>
+                                    <div class="event-meta">
+                                        <span class="event-time">📅 Day 2 | ⏰ 10:00 AM - 4:00 PM</span>
+                                        <span class="event-prize">🏆 ₹25,000</span>
+                                    </div>
+                                </div>
+                                <div class="event-actions">
+                                    <button class="register-btn" onclick="openRegistrationModal('webdev')">Register</button>
+                                    <button class="info-btn" onclick="showEventDetails('webdev')">Details</button>
+                                </div>
+                            </div>
+                            <div class="event-item-detailed">
+                                <div class="event-main-info">
+                                    <h4>App Development Challenge</h4>
+                                    <p class="event-description">Build mobile apps that solve real-world problems</p>
+                                    <div class="event-meta">
+                                        <span class="event-time">📅 Day 1 | ⏰ 2:00 PM - 6:00 PM</span>
+                                        <span class="event-prize">🏆 ₹30,000</span>
+                                    </div>
+                                </div>
+                                <div class="event-actions">
+                                    <button class="register-btn" onclick="openRegistrationModal('appdev')">Register</button>
+                                    <button class="info-btn" onclick="showEventDetails('appdev')">Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cultural Events -->
+                    <div class="event-category-detailed" data-category="cultural">
+                        <div class="category-header-detailed">
+                            <div class="category-icon">🎭</div>
+                            <h3 class="category-title">Cultural Events</h3>
+                            <p class="category-description">Express creativity through dance, music, and performance arts</p>
+                        </div>
+                        <div class="event-list-detailed">
+                            <div class="event-item-detailed">
+                                <div class="event-main-info">
+                                    <h4>Dance Battle</h4>
+                                    <p class="event-description">Showcase your moves in this high-energy dance competition</p>
+                                    <div class="event-meta">
+                                        <span class="event-time">📅 Day 2 | ⏰ 7:00 PM - 9:00 PM</span>
+                                        <span class="event-prize">🏆 ₹15,000</span>
+                                    </div>
+                                </div>
+                                <div class="event-actions">
+                                    <button class="register-btn" onclick="openRegistrationModal('dance')">Register</button>
+                                    <button class="info-btn" onclick="showEventDetails('dance')">Details</button>
+                                </div>
+                            </div>
+                            <div class="event-item-detailed">
+                                <div class="event-main-info">
+                                    <h4>Music Fusion</h4>
+                                    <p class="event-description">Blend traditional and modern music in this unique competition</p>
+                                    <div class="event-meta">
+                                        <span class="event-time">📅 Day 3 | ⏰ 5:00 PM - 7:00 PM</span>
+                                        <span class="event-prize">🏆 ₹20,000</span>
+                                    </div>
+                                </div>
+                                <div class="event-actions">
+                                    <button class="register-btn" onclick="openRegistrationModal('music')">Register</button>
+                                    <button class="info-btn" onclick="showEventDetails('music')">Details</button>
+                                </div>
+                            </div>
+                            <div class="event-item-detailed">
+                                <div class="event-main-info">
+                                    <h4>Drama Performance</h4>
+                                    <p class="event-description">Tell compelling stories through theatrical performances</p>
+                                    <div class="event-meta">
+                                        <span class="event-time">📅 Day 1 | ⏰ 6:00 PM - 8:00 PM</span>
+                                        <span class="event-prize">🏆 ₹18,000</span>
+                                    </div>
+                                </div>
+                                <div class="event-actions">
+                                    <button class="register-btn" onclick="openRegistrationModal('drama')">Register</button>
+                                    <button class="info-btn" onclick="showEventDetails('drama')">Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gaming Events -->
+                    <div class="event-category-detailed" data-category="gaming">
+                        <div class="category-header-detailed">
+                            <div class="category-icon">🎮</div>
+                            <h3 class="category-title">Gaming Events</h3>
+                            <p class="category-description">Compete in popular games and esports tournaments</p>
+                        </div>
+                        <div class="event-list-detailed">
+                            <div class="event-item-detailed">
+                                <div class="event-main-info">
+                                    <h4>BGMI Tournament</h4>
+                                    <p class="event-description">Battle royale tournament with squad-based gameplay</p>
+                                    <div class="event-meta">
+                                        <span class="event-time">📅 Day 1-3 | ⏰ Various Times</span>
+                                        <span class="event-prize">🏆 ₹40,000</span>
+                                    </div>
+                                </div>
+                                <div class="event-actions">
+                                    <button class="register-btn" onclick="openRegistrationModal('bgmi')">Register</button>
+                                    <button class="info-btn" onclick="showEventDetails('bgmi')">Details</button>
+                                </div>
+                            </div>
+                            <div class="event-item-detailed">
+                                <div class="event-main-info">
+                                    <h4>Free Fire Championship</h4>
+                                    <p class="event-description">Fast-paced battle royale with strategic gameplay</p>
+                                    <div class="event-meta">
+                                        <span class="event-time">📅 Day 2 | ⏰ 2:00 PM - 6:00 PM</span>
+                                        <span class="event-prize">🏆 ₹35,000</span>
+                                    </div>
+                                </div>
+                                <div class="event-actions">
+                                    <button class="register-btn" onclick="openRegistrationModal('freefire')">Register</button>
+                                    <button class="info-btn" onclick="showEventDetails('freefire')">Details</button>
+                                </div>
+                            </div>
+                            <div class="event-item-detailed">
+                                <div class="event-main-info">
+                                    <h4>FIFA Tournament</h4>
+                                    <p class="event-description">Soccer simulation competition for football enthusiasts</p>
+                                    <div class="event-meta">
+                                        <span class="event-time">📅 Day 3 | ⏰ 10:00 AM - 2:00 PM</span>
+                                        <span class="event-prize">🏆 ₹22,000</span>
+                                    </div>
+                                </div>
+                                <div class="event-actions">
+                                    <button class="register-btn" onclick="openRegistrationModal('fifa')">Register</button>
+                                    <button class="info-btn" onclick="showEventDetails('fifa')">Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sports Events -->
+                    <div class="event-category-detailed" data-category="sports">
+                        <div class="category-header-detailed">
+                            <div class="category-icon">⚽</div>
+                            <h3 class="category-title">Sports Events</h3>
+                            <p class="category-description">Physical competitions and outdoor activities</p>
+                        </div>
+                        <div class="event-list-detailed">
+                            <div class="event-item-detailed">
+                                <div class="event-main-info">
+                                    <h4>Football Tournament</h4>
+                                    <p class="event-description">11v11 football matches with knockout format</p>
+                                    <div class="event-meta">
+                                        <span class="event-time">📅 Day 1-3 | ⏰ 8:00 AM - 12:00 PM</span>
+                                        <span class="event-prize">🏆 ₹45,000</span>
+                                    </div>
+                                </div>
+                                <div class="event-actions">
+                                    <button class="register-btn" onclick="openRegistrationModal('football')">Register</button>
+                                    <button class="info-btn" onclick="showEventDetails('football')">Details</button>
+                                </div>
+                            </div>
+                            <div class="event-item-detailed">
+                                <div class="event-main-info">
+                                    <h4>Basketball 3v3</h4>
+                                    <p class="event-description">Fast-paced streetball tournament</p>
+                                    <div class="event-meta">
+                                        <span class="event-time">📅 Day 2 | ⏰ 9:00 AM - 1:00 PM</span>
+                                        <span class="event-prize">🏆 ₹25,000</span>
+                                    </div>
+                                </div>
+                                <div class="event-actions">
+                                    <button class="register-btn" onclick="openRegistrationModal('basketball')">Register</button>
+                                    <button class="info-btn" onclick="showEventDetails('basketball')">Details</button>
+                                </div>
+                            </div>
+                            <div class="event-item-detailed">
+                                <div class="event-main-info">
+                                    <h4>Cricket Tournament</h4>
+                                    <p class="event-description">T20 format cricket matches</p>
+                                    <div class="event-meta">
+                                        <span class="event-time">📅 Day 1-3 | ⏰ 2:00 PM - 6:00 PM</span>
+                                        <span class="event-prize">🏆 ₹40,000</span>
+                                    </div>
+                                </div>
+                                <div class="event-actions">
+                                    <button class="register-btn" onclick="openRegistrationModal('cricket')">Register</button>
+                                    <button class="info-btn" onclick="showEventDetails('cricket')">Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Workshop Events -->
+                    <div class="event-category-detailed" data-category="workshops">
+                        <div class="category-header-detailed">
+                            <div class="category-icon">🛠️</div>
+                            <h3 class="category-title">Workshops</h3>
+                            <p class="category-description">Learn new skills and technologies from industry experts</p>
+                        </div>
+                        <div class="event-list-detailed">
+                            <div class="event-item-detailed">
+                                <div class="event-main-info">
+                                    <h4>AI/ML Workshop</h4>
+                                    <p class="event-description">Hands-on experience with machine learning algorithms</p>
+                                    <div class="event-meta">
+                                        <span class="event-time">📅 Day 1 | ⏰ 10:00 AM - 12:00 PM</span>
+                                        <span class="event-prize">🎓 Certificate</span>
+                                    </div>
+                                </div>
+                                <div class="event-actions">
+                                    <button class="register-btn" onclick="openRegistrationModal('aiml')">Register</button>
+                                    <button class="info-btn" onclick="showEventDetails('aiml')">Details</button>
+                                </div>
+                            </div>
+                            <div class="event-item-detailed">
+                                <div class="event-main-info">
+                                    <h4>Blockchain Workshop</h4>
+                                    <p class="event-description">Learn about cryptocurrency and DeFi technologies</p>
+                                    <div class="event-meta">
+                                        <span class="event-time">📅 Day 2 | ⏰ 11:00 AM - 1:00 PM</span>
+                                        <span class="event-prize">🎓 Certificate</span>
+                                    </div>
+                                </div>
+                                <div class="event-actions">
+                                    <button class="register-btn" onclick="openRegistrationModal('blockchain')">Register</button>
+                                    <button class="info-btn" onclick="showEventDetails('blockchain')">Details</button>
+                                </div>
+                            </div>
+                            <div class="event-item-detailed">
+                                <div class="event-main-info">
+                                    <h4>Cybersecurity Bootcamp</h4>
+                                    <p class="event-description">Ethical hacking and security fundamentals</p>
+                                    <div class="event-meta">
+                                        <span class="event-time">📅 Day 3 | ⏰ 9:00 AM - 12:00 PM</span>
+                                        <span class="event-prize">🎓 Certificate</span>
+                                    </div>
+                                </div>
+                                <div class="event-actions">
+                                    <button class="register-btn" onclick="openRegistrationModal('cybersec')">Register</button>
+                                    <button class="info-btn" onclick="showEventDetails('cybersec')">Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Register Now CTA -->
+                <div class="events-cta">
+                    <h2>Ready to Participate?</h2>
+                    <p>Join thousands of participants in Sparx 2025. Register now to secure your spot!</p>
+                    <a href="registration.html" class="cta-button">Register Now</a>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Contact Us</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem;">Have questions? Get in touch with the EMAS Committee
+                </p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h4>Event Coordinator</h4>
+                        <p>coordinator@emas.edu</p>
+                        <p>+91 98765 43210</p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>Technical Support</h4>
+                        <p>tech@emas.edu</p>
+                        <p>+91 98765 43211</p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>General Inquiries</h4>
+                        <p>info@emas.edu</p>
+                        <p>+91 98765 43212</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Event Details Modal -->
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeEventModal()">&times;</span>
+            <div id="eventModalContent">
+                <!-- Event details will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+    <script>
+        // Events page specific JavaScript
+        let currentFilter = 'all';
+
+        function filterEvents(category) {
+            currentFilter = category;
+            
+            // Update active filter button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Show/hide event categories
+            const categories = document.querySelectorAll('.event-category-detailed');
+            categories.forEach(cat => {
+                if (category === 'all' || cat.dataset.category === category) {
+                    cat.style.display = 'block';
+                    cat.style.animation = 'fadeInUp 0.5s ease';
+                } else {
+                    cat.style.display = 'none';
+                }
+            });
+        }
+
+        function openRegistrationModal(eventType) {
+            // Redirect to registration page with event pre-selected
+            window.location.href = `registration.html?event=${eventType}`;
+        }
+
+        function showEventDetails(eventType) {
+            const eventDetails = {
+                hackathon: {
+                    title: 'Hackathon',
+                    description: '24-hour coding marathon where teams build innovative solutions to real-world problems.',
+                    rules: [
+                        'Teams of 2-4 members',
+                        'Use any programming language or framework',
+                        'Original code only',
+                        'Judged on innovation, execution, and presentation'
+                    ],
+                    schedule: 'Day 1: 6:00 PM - Day 2: 6:00 PM',
+                    prize: '₹50,000 for winning team',
+                    contact: 'tech@sparx2025.com'
+                },
+                webdev: {
+                    title: 'Web Development Contest',
+                    description: 'Create stunning, responsive websites using modern web technologies.',
+                    rules: [
+                        'Individual or team participation',
+                        'Use HTML, CSS, JavaScript',
+                        'Responsive design required',
+                        'Live deployment preferred'
+                    ],
+                    schedule: 'Day 2: 10:00 AM - 4:00 PM',
+                    prize: '₹25,000 for best website',
+                    contact: 'webdev@sparx2025.com'
+                },
+                dance: {
+                    title: 'Dance Battle',
+                    description: 'High-energy dance competition featuring various dance styles.',
+                    rules: [
+                        'Solo or group performances',
+                        'Any dance style welcome',
+                        '3-5 minute performances',
+                        'Original choreography preferred'
+                    ],
+                    schedule: 'Day 2: 7:00 PM - 9:00 PM',
+                    prize: '₹15,000 for best performance',
+                    contact: 'cultural@sparx2025.com'
+                }
+                // Add more event details as needed
+            };
+
+            const details = eventDetails[eventType];
+            if (details) {
+                document.getElementById('eventModalContent').innerHTML = `
+                    <h2>${details.title}</h2>
+                    <p><strong>Description:</strong> ${details.description}</p>
+                    <h3>Rules & Guidelines:</h3>
+                    <ul>
+                        ${details.rules.map(rule => `<li>${rule}</li>`).join('')}
+                    </ul>
+                    <p><strong>Schedule:</strong> ${details.schedule}</p>
+                    <p><strong>Prize:</strong> ${details.prize}</p>
+                    <p><strong>Contact:</strong> ${details.contact}</p>
+                    <button class="cta-button" onclick="openRegistrationModal('${eventType}')">Register for this Event</button>
+                `;
+                document.getElementById('eventModal').style.display = 'block';
+            }
+        }
+
+        function closeEventModal() {
+            document.getElementById('eventModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('eventModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load theme preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+                updateThemeToggleText();
+            }
+
+            // Handle URL parameters for event filtering
+            const urlParams = new URLSearchParams(window.location.search);
+            const eventCategory = urlParams.get('category');
+            if (eventCategory && eventCategory !== 'all') {
+                filterEvents(eventCategory);
+            }
+        });
+    </script>
+</body>
+</html>
