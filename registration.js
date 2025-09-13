@@ -3,6 +3,11 @@ class RegistrationManager {
     constructor() {
         this.registrations = [];
         this.selectedEvent = '';
+        // TODO: Add your Cloudinary cloud name and unsigned upload preset.
+        this.cloudinaryCloudName = 'dep7h2nxe';
+        this.cloudinaryUploadPreset = 'screenshots';
+        // Initialize Firestore
+        this.db = firebase.firestore();
         this.init();
     }
 
@@ -111,14 +116,16 @@ class RegistrationManager {
     togglePaymentDetails() {
         const paymentMethod = document.getElementById('paymentMethod');
         const paymentSection = document.getElementById('paymentSection');
+        const screenshotInput = document.getElementById('paymentScreenshot');
         const totalFee = this.calculateTotalFee();
 
         if (paymentMethod && paymentMethod.value === 'upi' && totalFee > 0) {
             paymentSection.style.display = 'block';
+            screenshotInput.required = true;
         } else {
             paymentSection.style.display = 'none';
+            screenshotInput.required = false;
             // Reset file upload when hiding payment section
-            const screenshotInput = document.getElementById('paymentScreenshot');
             const fileNameElement = document.getElementById('fileName');
 
             if (screenshotInput) screenshotInput.value = '';
@@ -161,52 +168,72 @@ class RegistrationManager {
 
     }
 
-    submitRegistration(e) {
+    async submitRegistration(e) {
         e.preventDefault();
-
+    
         const formData = new FormData(e.target);
         const selectedEvents = [];
-
+    
         const allEventCheckboxes = document.querySelectorAll('input[name="events"]');
         const checkedBoxes = document.querySelectorAll('input[name="events"]:checked');
-
+    
         checkedBoxes.forEach((checkbox) => {
             selectedEvents.push(checkbox.value);
         });
-
+    
         if (allEventCheckboxes.length === 0) {
             alert('Events are still loading. Please wait a moment and try again.');
             return;
         }
-
+    
         if (selectedEvents.length === 0) {
             alert('Please select at least one event to register for.');
             return;
         }
-
+    
         // Validate payment method selection
         const paymentMethod = formData.get('paymentMethod');
         if (!paymentMethod) {
             alert('Please select a payment method.');
             return;
         }
-
+    
         // Calculate total fee
         let totalFee = 0;
         checkedBoxes.forEach(checkbox => {
             const fee = parseInt(checkbox.getAttribute('data-fee')) || 0;
             totalFee += fee;
         });
-
-        // Validate payment screenshot for UPI payments with fees
+    
+        let screenshotUrl = '';
+        // Validate and upload payment screenshot for UPI payments with fees
         if (totalFee > 0 && paymentMethod === 'upi') {
             const screenshotInput = document.getElementById('paymentScreenshot');
             if (!screenshotInput || !screenshotInput.files || screenshotInput.files.length === 0) {
                 alert('Please upload a screenshot of your payment for verification.');
                 return;
             }
+    
+            const file = screenshotInput.files[0];
+            try {
+                const uploadData = new FormData();
+                uploadData.append('file', file);
+                uploadData.append('upload_preset', this.cloudinaryUploadPreset);
+    
+                const response = await fetch(`https://api.cloudinary.com/v1_1/${this.cloudinaryCloudName}/image/upload`, {
+                    method: 'POST',
+                    body: uploadData
+                });
+    
+                const data = await response.json();
+                screenshotUrl = data.secure_url;
+            } catch (error) {
+                console.error('Error uploading to Cloudinary:', error);
+                alert('There was an error uploading your screenshot. Please try again.');
+                return;
+            }
         }
-
+    
         const registration = {
             fullName: formData.get('fullName'),
             email: formData.get('email'),
@@ -217,41 +244,49 @@ class RegistrationManager {
             events: selectedEvents,
             totalFee: totalFee,
             paymentMethod: paymentMethod,
+            paymentScreenshotUrl: screenshotUrl,
             teamMembers: formData.get('teamMembers'),
             timestamp: new Date().toISOString()
         };
-        
-        // Store registration
-        this.registrations.push(registration);
-
-        // Show success alert
-        alert('Registration successful! We\'ll contact you with further details.');
-
-        // Reset form
-        e.target.reset();
-
-        // Reset total fee display
-        this.updateTotalFee();
-
-        // Reset file upload
-        const screenshotInput = document.getElementById('paymentScreenshot');
-        const fileNameElement = document.getElementById('fileName');
-
-        if (screenshotInput) screenshotInput.value = '';
-        if (fileNameElement) {
-            fileNameElement.textContent = 'No file selected';
-            fileNameElement.style.color = '#666';
-        }
-
-        // Update register buttons for selected events
-        this.updateRegisterButtons(selectedEvents);
-
-        // Auto close modal after 3 seconds (if modal exists)
-        const modal = document.getElementById('registrationModal');
-        if (modal) {
-            setTimeout(() => {
-                this.closeRegistration();
-            }, 3000);
+    
+        // Store registration in Firestore
+        try {
+            if (!this.db) {
+                throw new Error("Firestore is not initialized.");
+            }
+            await this.db.collection('registrations').add(registration);
+            // Show success alert
+            alert('Registration successful! We\'ll contact you with further details.');
+    
+            // Reset form
+            e.target.reset();
+    
+            // Reset total fee display
+            this.updateTotalFee();
+    
+            // Reset file upload
+            const screenshotInput = document.getElementById('paymentScreenshot');
+            const fileNameElement = document.getElementById('fileName');
+    
+            if (screenshotInput) screenshotInput.value = '';
+            if (fileNameElement) {
+                fileNameElement.textContent = 'No file selected';
+                fileNameElement.style.color = '#666';
+            }
+    
+            // Update register buttons for selected events
+            this.updateRegisterButtons(selectedEvents);
+    
+            // Auto close modal after 3 seconds (if modal exists)
+            const modal = document.getElementById('registrationModal');
+            if (modal) {
+                setTimeout(() => {
+                    this.closeRegistration();
+                }, 3000);
+            }
+        } catch (error) {
+            console.error('Error adding document to Firestore: ', error);
+            alert('There was an error with your registration. Please try again. Check the console for more details.');
         }
     }
 
@@ -611,4 +646,3 @@ function handleFileUpload(input) {
         fileNameElement.style.fontWeight = 'normal';
     }
 }
-

@@ -2,76 +2,90 @@
 const eventsData = {
     technical: [
         {
-            id: 'codeSprint',
-            name: 'Code Sprint',
-            fee: 300,
-            time: 'Day 1 - 10:00 AM',
-            description: 'Competitive programming challenge'
+            id: 'Code Trace',
+            name: 'Code Trace',
+            fee: 50,
+            time: 'Day 1 - 11:00 AM',
+            description: 'Analyze code snippets and predict their output. A true test of your programming logic and debugging skills.',
+            rules: [
+                'Participants will be given a set of code snippets in various languages.',
+                'No compilers or interpreters are allowed.',
+                'Scoring is based on the accuracy of the output.',
+                'Time limits will be strictly enforced for each question.'
+            ],
+            coordinator: 'Harshad Dhongade'
         },
         {
-            id: 'roboWars',
-            name: 'Robo Wars',
-            fee: 500,
-            time: 'Day 2 - 2:00 PM',
-            description: 'Battle of the bots'
+            id: 'Rapid Fire',
+            name: 'Rapid Fire',
+            fee: 50,
+            time: 'Day 1 - 1:00 PM',
+            description: 'A fast-paced bot battle where strategy and design determine the winner.',
+            rules: [
+                'Bots must adhere to specific weight and size limitations.',
+                'Each match consists of three rounds.',
+                'Destruction of the opponent\'s bot is the primary objective.',
+                'A panel of judges will score based on aggression, control, and damage.'
+            ],
+            coordinator: 'Pallavi Thete'
         },
         {
-            id: 'circuitDesign',
-            name: 'Circuit Design',
-            fee: 400,
-            time: 'Day 3 - 9:00 AM',
-            description: 'Design innovative electronic circuits'
-        },
-        {
-            id: 'webDev',
-            name: 'Web Development',
-            fee: 300,
-            time: 'Day 3 - 1:00 PM',
-            description: 'Build stunning web applications'
-        },
-        {
-            id: 'aimlChallenge',
-            name: 'AI/ML Challenge',
-            fee: 400,
-            time: 'Day 4 - 10:00 AM',
-            description: 'Solve real-world problems with AI'
+            id: 'Technovision',
+            name: 'Technovision',
+            fee: 50,
+            time: 'Day 1 - 3:00 PM',
+            description: 'Showcase your creativity by designing and building innovative electronic circuits to solve a given problem.',
+            rules: [
+                'All necessary components will be provided.',
+                'Circuits will be judged on innovation, efficiency, and practical application.',
+                'Participants must provide a brief presentation of their design.',
+                'Safety guidelines must be followed at all times.'
+            ],
+            coordinator: 'Yashika Chavla'
         }
     ],
     nonTechnical: [
         {
-            id: 'techQuiz',
-            name: 'Technical Quiz',
-            fee: 200,
+            id: 'Scribble',
+            name: 'Scribble',
+            fee: 50,
             time: 'Day 1 - 2:00 PM',
-            description: 'Test your engineering knowledge'
+            description: 'A fun and creative drawing and guessing game that tests your artistic and communication skills.',
+            rules: [
+                'Teams will consist of 2 or more members.',
+                'One member draws while the other guesses.',
+                'No verbal or written clues are allowed.',
+                'The team with the most correct guesses wins.'
+            ],
+            coordinator: 'Roshan Pawar'
         },
         {
-            id: 'posterPresentation',
-            name: 'Poster Presentation',
-            fee: 250,
-            time: 'Day 2 - 10:00 AM',
-            description: 'Present your innovative ideas'
+            id: 'Dumble Hold',
+            name: 'Dumble Hold',
+            fee: 50,
+            time: 'Day 1 - 3:00 PM & Day 2 - 10:00 AM',
+            description: 'A test of strength and endurance. Hold a dumbbell for as long as you can.',
+             rules: [
+                'Participants must hold the dumbbell with a straight arm.',
+                'The arm must remain parallel to the ground.',
+                'The longest time wins the competition.',
+                'Judges will monitor for proper form.'
+            ],
+            coordinator: 'Shreehari Joshi'
         },
         {
-            id: 'photography',
-            name: 'Photography Contest',
-            fee: 200,
-            time: 'Day 2 - 4:00 PM',
-            description: 'Capture the perfect moment'
-        },
-        {
-            id: 'debate',
-            name: 'Debate Competition',
-            fee: 250,
-            time: 'Day 4 - 2:00 PM',
-            description: 'Engage in intellectual discourse'
-        },
-        {
-            id: 'culturalShow',
-            name: 'Cultural Show',
-            fee: 300,
-            time: 'Day 5 - 6:00 PM',
-            description: 'Entertainment and farewell'
+            id: 'Treasure Hunt',
+            name: 'Treasure Hunt',
+            fee: 50,
+            time: 'Day 2 - 2:00 PM',
+            description: 'Follow the clues, solve the riddles, and race to find the hidden treasure.',
+            rules: [
+                'Teams of 4-6 members.',
+                'The first team to solve all clues and find the treasure wins.',
+                'Use of mobile phones is restricted to specific checkpoints.',
+                'All team members must be present at the finish line.'
+            ],
+            coordinator: 'Ayyan Pathan'
         }
     ]
 };
@@ -79,87 +93,52 @@ const eventsData = {
 // Schedule Data Configuration
 const scheduleData = {
     day1: {
-        title: 'Day 1 - Monday',
+        title: 'Day 1 - Thursday',
         events: [
             {
-                time: '9:00 AM',
-                title: 'Opening Ceremony',
+                time: '10:00 AM',
+                title: 'Inauguration Ceremony',
                 description: 'Welcome address and event overview'
             },
             {
-                time: '10:00 AM',
-                title: 'Code Sprint',
-                description: 'Competitive programming challenge'
+                time: '11:00 AM',
+                title: 'Code Trace',
+                description: 'Trace the output of the given code snippets accurately.'
             },
             {
-                time: '2:00 PM',
-                title: 'Technical Quiz',
-                description: 'Test your engineering knowledge'
+                time: '1:00 PM',
+                title: 'Rapid Fire',
+                description: 'A fast-paced question-and-answer game played under time pressure.'
+            },
+            {
+                time: '3:00 PM',
+                title: 'Technovision',
+                description: 'Showcase your creativity by designing and building innovative electronic circuits to solve a given problem.'
+            },
+            {
+                time: '3:00 PM',
+                title: 'Dumble Hold',
+                description: 'A test of strength and endurance. Hold a dumbbell for as long as you can.'
             }
         ]
     },
     day2: {
-        title: 'Day 2 - Tuesday',
+        title: 'Day 2 - Friday',
         events: [
             {
                 time: '10:00 AM',
-                title: 'Poster Presentation',
-                description: 'Present your innovative ideas'
-            },
-            {
-                time: '2:00 PM',
-                title: 'Robo Wars',
-                description: 'Battle of the bots'
-            },
-            {
-                time: '4:00 PM',
-                title: 'Photography Contest',
-                description: 'Capture the perfect moment'
-            }
-        ]
-    },
-    day3: {
-        title: 'Day 3 - Wednesday',
-        events: [
-            {
-                time: '9:00 AM',
-                title: 'Circuit Design',
-                description: 'Design innovative electronic circuits'
+                title: 'Dumble Hold',
+                description: 'A test of strength and endurance. Hold a dumbbell for as long as you can.'
             },
             {
                 time: '1:00 PM',
-                title: 'Web Development',
-                description: 'Build stunning web applications'
-            }
-        ]
-    },
-    day4: {
-        title: 'Day 4 - Thursday',
-        events: [
-            {
-                time: '10:00 AM',
-                title: 'AI/ML Challenge',
-                description: 'Solve real-world problems with AI'
+                title: 'Scribble',
+                description: 'A fun and creative drawing and guessing game that tests your artistic and communication skills.'
             },
             {
                 time: '2:00 PM',
-                title: 'Debate Competition',
-                description: 'Engage in intellectual discourse'
-            }
-        ]
-    },
-    day5: {
-        title: 'Day 5 - Friday',
-        events: [
-            {
-                time: '2:00 PM',
-                title: 'Prize Distribution',
-                description: 'Celebrating our winners'
-            },
-            {
-                time: '6:00 PM',
-                title: 'Cultural Show & Closing',
-                description: 'Entertainment and farewell'
+                title: 'Treasure Hunt',
+                description: 'Follow the clues, solve the riddles, and race to find the hidden treasure.'
             }
         ]
     }
