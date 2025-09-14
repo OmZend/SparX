@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Admin Login - Sparx Engineers Week 2025</title>
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <meta name="description" content="Admin Login for Sparx Engineers Week 2025">
+    <meta name="theme-color" content="#0A2540">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Sparx 2025 Admin">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin.css">
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="firebase-config.js"></script>
+    
+    <!-- Ensure Firebase is initialized before loading admin-login.js -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Firebase initialized on login page:', typeof firebase !== 'undefined');
+            if (typeof firebase === 'undefined') {
+                console.error('Firebase is not defined on login page. Check script loading order.');
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="admin-login-container">
+        <div class="admin-login-card">
+            <div class="admin-login-header">
+                <h1 class="logo">SparX</h1>
+                <h2>Admin Login</h2>
+            </div>
+            <form id="adminLoginForm" class="admin-login-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter admin email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required placeholder="Enter password">
+                </div>
+                <div id="loginError" class="error-message"></div>
+                <button type="submit" class="admin-login-btn">Login</button>
+            </form>
+            <div class="admin-login-footer">
+                <a href="index.html" class="back-link">Back to Website</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin-login.js"></script>
+</body>
+
+</html>
