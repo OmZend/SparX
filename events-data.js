@@ -13,7 +13,7 @@ const eventsData = {
                 'Scoring is based on the accuracy of the output.',
                 'Time limits will be strictly enforced for each question.'
             ],
-            coordinator: 'Harshad Dhongade'
+            coordinator: 'Harshad Dhongade.'
         },
         {
             id: 'Rapid Fire',
@@ -27,7 +27,7 @@ const eventsData = {
                 'Destruction of the opponent\'s bot is the primary objective.',
                 'A panel of judges will score based on aggression, control, and damage.'
             ],
-            coordinator: 'Pallavi Thete'
+            coordinator: 'Pallavi Thete.'
         },
         {
             id: 'Technovision',
@@ -41,7 +41,7 @@ const eventsData = {
                 'Participants must provide a brief presentation of their design.',
                 'Safety guidelines must be followed at all times.'
             ],
-            coordinator: 'Yashika Chawla'
+            coordinator: 'Yashika Chawla.'
         }
     ],
     nonTechnical: [
@@ -57,7 +57,7 @@ const eventsData = {
                 'No verbal or written clues are allowed.',
                 'The team with the most correct guesses wins.'
             ],
-            coordinator: 'Roshan Pawar'
+            coordinator: 'Roshan Pawar.'
         },
         {
             id: 'Dumble Hold',
@@ -71,7 +71,7 @@ const eventsData = {
                 'The longest time wins the competition.',
                 'Judges will monitor for proper form.'
             ],
-            coordinator: 'Shreehari Joshi'
+            coordinator: 'Shreehari Joshi.'
         },
         {
             id: 'Treasure Hunt',
@@ -85,7 +85,7 @@ const eventsData = {
                 'Use of mobile phones is restricted to specific checkpoints.',
                 'All team members must be present at the finish line.'
             ],
-            coordinator: 'Ayyan Pathan'
+            coordinator: 'Ayyan Pathan.'
         }
     ]
 };
