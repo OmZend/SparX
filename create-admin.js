@@ -13,8 +13,10 @@ function createAdminUser() {
         })
         .catch((error) => {
             // Handle errors
+            console.log('Create admin error code:', error.code);
+            console.log('Full error:', error);
             console.error('Error creating admin user:', error);
-            alert('Error creating admin user: ' + error.message);
+            alert('Error creating admin user: ' + error.message + ' (Code: ' + error.code + ')');
         });
 }
 
