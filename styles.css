@@ -85,10 +85,29 @@ nav {
     color: #333;
     font-weight: 500;
     transition: color 0.3s ease;
+    display: inline-block;
 }
 
 .nav-links a:hover {
     color: #0A2540;
+}
+
+.nav-links a[href="admin-login.html"], .admin-link {
+    color: #0A2540 !important;
+    font-weight: 500 !important;
+    transition: all 0.3s ease;
+}
+
+.dark-theme .nav-links a[href="admin-login.html"], .dark-theme .admin-link {
+    color: #87ceeb !important;
+}
+
+.nav-links a[href="admin-login.html"]:hover, .admin-link:hover {
+    color: #0A2540 !important;
+}
+
+.dark-theme .nav-links a[href="admin-login.html"]:hover, .dark-theme .admin-link:hover {
+    color: #87ceeb !important;
 }
 
 a[href^="tel:"] {
@@ -548,7 +567,7 @@ section {
 }
 
 .dark-theme .nav-links a:hover {
-    color: #0A2540;
+    color: #87ceeb;
 }
 
 .dark-theme .logo {
@@ -853,6 +872,18 @@ section {
     padding-left: 1rem;
 }
 
+.mobile-nav-links a[href="admin-login.html"], .mobile-nav-links .admin-link {
+    color: #0A2540 !important;
+    font-weight: 500 !important;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav-links a[href="admin-login.html"]:hover, .mobile-nav-links .admin-link:hover {
+    color: #0A2540 !important;
+    padding-left: 1rem;
+}
+
 /* Mobile Events Navigation */
 .mobile-events-nav {
     display: none;
@@ -1061,6 +1092,10 @@ section {
 .dark-theme .mobile-nav-links a {
     color: #e0e0e0;
     background-color: rgba(26, 26, 46, 0);
+}
+
+.dark-theme .mobile-nav-links a[href="admin-login.html"] {
+    color: #87ceeb !important;
 }
 .dark-theme .mobile-nav-links{
     color: #e0e0e0;
