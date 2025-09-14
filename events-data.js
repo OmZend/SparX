@@ -41,7 +41,7 @@ const eventsData = {
                 'Participants must provide a brief presentation of their design.',
                 'Safety guidelines must be followed at all times.'
             ],
-            coordinator: 'Yashika Chavla'
+            coordinator: 'Yashika Chawla'
         }
     ],
     nonTechnical: [
