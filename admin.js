@@ -707,16 +707,27 @@ function exportRegistrationsToCsv() {
         alert('No registrations to export');
         return;
     }
-    
+
     // Get currently visible registrations (filtered or all)
     const tableBody = document.getElementById('registrationsTableBody');
     const visibleRows = tableBody.querySelectorAll('tr');
     const visibleRegistrations = [];
-    
-    visibleRows.forEach((row, index) => {
-        visibleRegistrations.push(window.allRegistrations[index]);
+
+    visibleRows.forEach(row => {
+        const registrationId = row.getAttribute('data-id');
+        if (registrationId) {
+            const registration = window.allRegistrations.find(reg => reg.id === registrationId);
+            if (registration) {
+                visibleRegistrations.push(registration);
+            }
+        }
     });
-    
+
+    if (visibleRegistrations.length === 0) {
+        alert('No visible registrations to export');
+        return;
+    }
+
     // Define CSV headers
     const headers = [
         'Full Name',
@@ -730,21 +741,21 @@ function exportRegistrationsToCsv() {
         'Registration Date',
         'Status'
     ];
-    
+
     // Create CSV content
     let csvContent = headers.join(',') + '\n';
-    
+
     visibleRegistrations.forEach(registration => {
         // Format events as a comma-separated list in quotes
-        const events = Array.isArray(registration.events) 
-            ? '"' + registration.events.join('; ') + '"' 
-            : 'N/A';
-        
+        const events = Array.isArray(registration.events) ?
+            '"' + registration.events.join('; ') + '"' :
+            'N/A';
+
         // Format date
-        const registrationDate = registration.timestamp 
-            ? new Date(registration.timestamp).toLocaleString() 
-            : 'N/A';
-        
+        const registrationDate = registration.timestamp ?
+            new Date(registration.timestamp).toLocaleString() :
+            'N/A';
+
         // Create row data
         const row = [
             registration.fullName || 'N/A',
@@ -758,31 +769,32 @@ function exportRegistrationsToCsv() {
             registrationDate,
             registration.status || 'pending'
         ];
-        
+
         // Escape any commas in the data
         const escapedRow = row.map(field => {
+            const fieldStr = String(field);
             // If field contains commas, quotes, or newlines, wrap in quotes
-            if (field.includes(',') || field.includes('"') || field.includes('\n')) {
+            if (fieldStr.includes(',') || fieldStr.includes('"') || fieldStr.includes('\n')) {
                 // Replace any quotes with double quotes for CSV escaping
-                return '"' + field.replace(/"/g, '""') + '"';
+                return '"' + fieldStr.replace(/"/g, '""') + '"';
             }
-            return field;
+            return fieldStr;
         });
-        
+
         // Add row to CSV content
         csvContent += escapedRow.join(',') + '\n';
     });
-    
+
     // Create download link
     const encodedUri = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csvContent);
     const link = document.createElement('a');
     link.setAttribute('href', encodedUri);
     link.setAttribute('download', 'sparx_registrations.csv');
     document.body.appendChild(link);
-    
+
     // Trigger download
     link.click();
-    
+
     // Clean up
     document.body.removeChild(link);
 }
