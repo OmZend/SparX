@@ -1,0 +1,483 @@
+.events-page {
+    padding-top: 60px;
+}
+
+.events-hero {
+    background: linear-gradient(135deg, #0A2540, #1E88E5);
+    padding: 80px 0;
+    color: #fff;
+    text-align: center;
+}
+
+.events-hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.events-subtitle {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    opacity: 0.9;
+}
+
+.events-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    border-radius: 12px;
+    min-width: 150px;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Filter Section */
+.events-filter {
+    padding: 40px 0;
+    background: #f5f7fa;
+}
+
+.dark-theme .events-filter {
+    background: #16213e;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.filter-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    background: #fff;
+    color: #0A2540;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dark-theme .filter-btn {
+    background: #2d3748;
+    color: #e0e7ff;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: #1E88E5;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Events Grid */
+.events-detailed-grid {
+    display: grid;
+    gap: 2rem;
+    padding: 40px 0;
+}
+
+.event-category-detailed {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.dark-theme .event-category-detailed {
+    background: #2d3748;
+}
+
+.category-header-detailed {
+    padding: 2rem;
+    background: linear-gradient(135deg, #0A2540, #1E88E5);
+    color: #fff;
+}
+
+.category-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.category-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.event-list-detailed {
+    padding: 1.5rem;
+}
+
+.event-item-detailed {
+    padding: 1.5rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.dark-theme .event-item-detailed {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.event-main-info h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #0A2540;
+}
+
+.dark-theme .event-main-info h4 {
+    color: #e0e7ff;
+}
+
+.event-description {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.dark-theme .event-description {
+    color: #a0aec0;
+}
+
+.event-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.dark-theme .event-meta {
+    color: #a0aec0;
+}
+
+.event-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.register-btn, .info-btn {
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.register-btn {
+    background: #1E88E5;
+    color: #fff;
+}
+
+.info-btn {
+    background: transparent;
+    border: 1px solid #1E88E5;
+    color: #1E88E5;
+}
+
+.dark-theme .info-btn {
+    border-color: #e0e7ff;
+    color: #e0e7ff;
+}
+
+/* Inline Event Details (Accordion) */
+.event-details-inline {
+    margin: 0 1.5rem 1.5rem 1.5rem;
+    padding: 1.25rem 1.25rem 1.25rem 1.25rem;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    animation: detailsFadeIn 240ms ease-out;
+}
+
+.dark-theme .event-details-inline {
+    background: #1f2937;
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.event-details-inline h4 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.1rem;
+    color: #0A2540;
+}
+
+.dark-theme .event-details-inline h4 {
+    color: #e0e7ff;
+}
+
+.event-details-inline ul {
+    margin: 0 0 0.75rem 1.25rem;
+    padding: 0;
+    color: #475569;
+}
+
+.dark-theme .event-details-inline ul {
+    color: #a0aec0;
+}
+
+.event-details-inline p {
+    margin: 0.25rem 0;
+    color: #334155;
+}
+
+.dark-theme .event-details-inline p {
+    color: #cbd5e1;
+}
+
+.event-details-inline .register-btn {
+    margin-top: 0.75rem;
+}
+
+@keyframes detailsFadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Modal Styles */
+/* --- REPLACE your existing .modal styles with this --- */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* A standard dark overlay */
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Hidden by default */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal.active {
+    /* Shown when active */
+    opacity: 1;
+    visibility: visible;
+}
+
+/* --- The rest of your modal styles are fine --- */
+
+.modal-content {
+    position: relative;
+    background: #fff;
+    padding: 2rem;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    /* Add a transition for a nice pop-in effect */
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.modal.active .modal-content {
+    transform: scale(1);
+}
+
+.dark-theme .modal-content {
+    background: #2d3748;
+    color: #e0e7ff;
+}
+
+.close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #999;
+}
+.close:hover {
+    color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .events-page {
+        padding-top: 70px;
+    }
+
+    .events-hero {
+        padding: 40px 20px;
+    }
+
+    .events-hero-content h1 {
+        font-size: 2rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .events-subtitle {
+        font-size: 1rem;
+        padding: 0 15px;
+    }
+
+    .events-filter {
+        padding: 20px 15px;
+    }
+
+    .filter-buttons {
+        gap: 0.5rem;
+        padding: 0 10px;
+    }
+
+    .filter-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+        flex: 0 0 calc(50% - 0.5rem);
+        text-align: center;
+    }
+
+    .events-detailed-grid {
+        padding: 20px 15px;
+        gap: 1rem;
+    }
+
+    .event-category-detailed {
+        margin: 0 15px;
+        border-radius: 10px;
+    }
+
+    .category-header-detailed {
+        padding: 1.5rem;
+    }
+
+    .category-title {
+        font-size: 1.5rem;
+    }
+
+    .event-list-detailed {
+        padding: 1rem;
+    }
+
+    .event-item-detailed {
+        padding: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+
+    .event-main-info {
+        width: 100%;
+    }
+
+    .event-main-info h4 {
+        font-size: 1.1rem;
+    }
+
+    .event-description {
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .event-meta {
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        width: 100%;
+    }
+
+    .event-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .register-btn, .info-btn {
+        flex: 1;
+        margin: 0 5px;
+        padding: 0.8rem;
+        font-size: 0.9rem;
+        text-align: center;
+    }
+
+    /* Improve scrolling on mobile */
+    .events-container {
+        margin: 0 -15px;
+        padding: 0 15px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Stats cards mobile optimization */
+    .stat-card {
+        padding: 1rem;
+        min-width: 120px;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .stat-label {
+        font-size: 0.9rem;
+    }
+
+    /* Modal adjustments for mobile */
+    .modal-content {
+        margin: 10% auto;
+        padding: 1.5rem;
+        width: 95%;
+    }
+}
+
+/* Additional mobile optimizations for smaller screens */
+@media (max-width: 480px) {
+    .events-hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .filter-btn {
+        flex: 0 0 100%;
+    }
+
+    .event-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .register-btn, .info-btn {
+        width: 100%;
+        margin: 0;
+    }
+
+    .stat-card {
+        min-width: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .events-stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .stat-card {
+        min-width: unset;
+        width: 100%;
+    }
+}

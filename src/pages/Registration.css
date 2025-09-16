@@ -1,0 +1,429 @@
+.registration-hero {
+    background: linear-gradient(135deg, #1E88E5 0%, #0A2540 100%);
+    color: white;
+    padding: 8rem 0 4rem 0;
+    text-align: center;
+}
+
+.registration-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.registration-hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.back-to-home {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.back-to-home:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.registration-page {
+    padding: 4rem 0;
+    background: #f8f9fa;
+}
+
+.registration-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.registration-form {
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.form-header h2 {
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.form-header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+    font-size: 1rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #0A2540;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.checkbox-item:hover {
+    background: #e9ecef;
+}
+
+.checkbox-item input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+}
+
+.checkbox-item label {
+    margin: 0;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1.25rem;
+    background: linear-gradient(135deg, #1E88E5 0%, #0A2540 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 2rem;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.success-message {
+    display: block; /* Changed from none */
+    background: #d4edda;
+    color: #155724;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    border: 1px solid #c3e6cb;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.fee-display {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: #f8fafc;
+    border-radius: 10px;
+    border: 2px solid #e2e8f0;
+}
+
+.total-fee {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #0f172a;
+    text-align: right;
+    padding-top: 1rem;
+    border-top: 2px solid #e2e8f0;
+    margin-top: 1rem;
+}
+
+.payment-section {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: #f8fafc;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.payment-section h3 {
+    color: #0f172a;
+    margin-bottom: 1rem;
+}
+
+.qr-code {
+    max-width: 200px;
+    margin: 1rem auto;
+    border-radius: 10px;
+    padding: 1rem;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.upi-details {
+    margin: 1rem 0;
+    font-size: 1.1rem;
+    color: #475569;
+}
+
+.dark-theme .fee-display {
+    background: #1a1a2e;
+    border-color: #2d3748;
+}
+
+.dark-theme .total-fee {
+    color: #e2e8f0;
+    border-color: #2d3748;
+}
+
+.dark-theme .payment-section {
+    background: #1a1a2e;
+}
+
+.dark-theme .payment-section h3 {
+    color: #e2e8f0;
+}
+
+.dark-theme .upi-details {
+    color: #94a3b8;
+}
+
+.dark-theme .qr-code {
+    background: #0f172a;
+    border-color: #2d3748;
+}
+
+.upload-container {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #f8fafc;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.upload-title {
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.upload-description {
+    margin: 0 0 1rem 0;
+    font-size: 0.9rem;
+    color: #475569;
+}
+
+.file-name {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+    word-break: break-all;
+}
+
+.dark-theme .upload-container {
+    background: #1a1a2e;
+    border-color: #2d3748;
+}
+
+.dark-theme .upload-title {
+    color: #e2e8f0;
+}
+
+.dark-theme .upload-description {
+    color: #94a3b8;
+}
+
+.dark-theme .file-name {
+    color: #94a3b8;
+}
+
+.required-field::after {
+    content: " *";
+    color: #dc3545;
+}
+
+.form-note {
+    background: #e3f2fd;
+    color: #1565c0;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    border-left: 4px solid #2196f3;
+}
+
+.form-note p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.field-error {
+    color: #dc3545;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+.dark-theme .form-group label {
+    color: #e0e0e0;
+}
+
+.dark-theme .registration-form {
+    background: #16213e;
+    color: #ffffff;
+}
+
+.dark-theme .form-group input,
+.dark-theme .form-group select,
+.dark-theme .form-group textarea {
+    background-color: #16213e !important;
+    border-color: #404040;
+    color: #ffffff;
+}
+
+/* Fix browser autofill in dark mode (Chrome/Edge/Safari) */
+.dark-theme .registration-form input:-webkit-autofill,
+.dark-theme .registration-form select:-webkit-autofill,
+.dark-theme .registration-form textarea:-webkit-autofill {
+    -webkit-text-fill-color: #ffffff !important;
+    caret-color: #ffffff !important;
+    box-shadow: 0 0 0px 1000px #16213e inset !important;
+    -webkit-box-shadow: 0 0 0px 1000px #16213e inset !important;
+    border-color: #404040 !important;
+}
+
+.dark-theme .registration-form input:-webkit-autofill:hover,
+.dark-theme .registration-form input:-webkit-autofill:active,
+.dark-theme .registration-form input:-webkit-autofill:focus,
+.dark-theme .registration-form select:-webkit-autofill:focus,
+.dark-theme .registration-form textarea:-webkit-autofill:focus {
+    -webkit-text-fill-color: #ffffff !important;
+    box-shadow: 0 0 0px 1000px #16213e inset !important;
+    -webkit-box-shadow: 0 0 0px 1000px #16213e inset !important;
+}
+
+/* Firefox autofill override */
+.dark-theme .registration-form input:-moz-ui-invalid,
+.dark-theme .registration-form select:-moz-ui-invalid,
+.dark-theme .registration-form textarea:-moz-ui-invalid {
+    background-color: #16213e !important;
+    color: #ffffff !important;
+}
+
+/* Improve internal autofill styles on Chromium-based browsers */
+.dark-theme .registration-form input,
+.dark-theme .registration-form select,
+.dark-theme .registration-form textarea {
+    filter: none !important;
+    color-scheme: dark;
+    background-clip: padding-box;
+}
+
+.dark-theme .required-field::after {
+    color: #ff6b6b;
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .registration-form {
+        padding: 2rem;
+        margin: 0 1rem;
+    }
+
+    .checkbox-group {
+        grid-template-columns: 1fr;
+    }
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    background: linear-gradient(135deg, #1E88E5 0%, #0A2540 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.custom-file-upload:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(10, 37, 64, 0.3);
+}
+
+.file-name {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.dark-theme .custom-file-upload {
+    background: linear-gradient(135deg, #87ceeb 0%, #1E88E5 100%);
+    color: #1a1a2e;
+}
+
+.dark-theme .custom-file-upload:hover {
+    box-shadow: 0 5px 15px rgba(135, 206, 235, 0.3);
+}
+
+.dark-theme .file-name {
+    color: #bbb;
+}

@@ -1,0 +1,145 @@
+/* Admin Login Page */
+.admin-login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background: linear-gradient(135deg, #1E88E5 0%, #0A2540 100%);
+}
+
+.admin-login-card {
+    width: 100%;
+    max-width: 450px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+}
+
+.admin-login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.admin-login-header h2 {
+    margin-top: 10px;
+    color: #0A2540;
+    font-weight: 600;
+}
+
+.admin-login-form .form-group {
+    margin-bottom: 20px;
+}
+
+.admin-login-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333333;
+}
+
+.admin-login-form input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.admin-login-form input:focus {
+    border-color: #1E88E5;
+    outline: none;
+}
+
+.admin-login-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #1E88E5 0%, #0A2540 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.admin-login-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.error-message {
+    color: #F44336;
+    margin-bottom: 15px;
+    font-size: 14px;
+    min-height: 20px;
+}
+
+.admin-login-footer {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.back-link {
+    color: #1E88E5;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: #0A2540;
+    text-decoration: underline;
+}
+
+/* Dark Mode Styles */
+.dark-theme .admin-login-container {
+    background: linear-gradient(135deg, #0f1a2e 0%, #1a1a2e 100%);
+}
+
+.dark-theme .admin-login-card {
+    background-color: #16213e;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .admin-login-header h2 {
+    color: #e0e0e0;
+}
+
+.dark-theme .admin-login-form label {
+    color: #e0e0e0;
+}
+
+.dark-theme .admin-login-form input {
+    background-color: #2d3748;
+    border-color: #4a5568;
+    color: #e0e0e0;
+}
+
+.dark-theme .admin-login-form input:focus {
+    border-color: #87ceeb;
+}
+
+.dark-theme .admin-login-btn {
+    background: linear-gradient(135deg, #1E88E5 0%, #0A2540 100%);
+}
+
+.dark-theme .admin-login-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.dark-theme .error-message {
+    color: #ff6b6b;
+}
+
+.dark-theme .back-link {
+    color: #87ceeb;
+}
+
+.dark-theme .back-link:hover {
+    color: #1E88E5;
+}

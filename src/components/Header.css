@@ -1,0 +1,284 @@
+/* Header */
+header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-size: 2rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #1E88E5 0%, #0A2540 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-decoration: none;
+}
+
+.theme-toggle {
+    background: none;
+    border: 2px solid #0A2540;
+    color: #0A2540;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.theme-toggle:hover {
+    background: #0A2540;
+    color: white;
+}
+
+.mobile-theme {
+    padding: 0.7rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    border-radius: 50%;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    display: inline-block;
+}
+
+.nav-links a:hover {
+    color: #0A2540;
+}
+
+/* Dark Theme Styles */
+.dark-theme header {
+    background: rgba(26, 26, 46, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.dark-theme .nav-links a {
+    color: #e0e0e0;
+}
+
+.dark-theme .nav-links a:hover {
+    color: #87ceeb;
+}
+
+.dark-theme .theme-toggle {
+    border-color: #e0e0e0;
+    color: #e0e0e0;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .theme-toggle:hover {
+    background: #e0e0e0;
+    color: #1a1a2e;
+}
+
+.dark-theme .mobile-theme {
+    border-color: #e0e0e0;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile Navigation Styles */
+.nav-desktop {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-mobile {
+    display: none;
+    align-items: center;
+    gap: 1rem;
+}
+
+.hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 2000;
+    position: relative;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: scale(1.05);
+}
+
+.hamburger-menu span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #333;
+    border-radius: 1px;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform-origin: center;
+}
+
+.hamburger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 1998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1999;
+    transition: right 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* removed close-mobile-menu styles (using hamburger as close) */
+
+.mobile-nav-links {
+    list-style: none;
+    padding: 1rem 0;
+    margin: 0;
+}
+
+.mobile-nav-links li {
+    margin-bottom: 1.5rem;
+}
+
+.mobile-nav-links a {
+    display: block;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    color: #333;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.mobile-nav-links a:hover {
+    color: #0A2540;
+    padding-left: 2rem;
+}
+
+@media (max-width: 768px) {
+    .nav-desktop {
+        display: none;
+    }
+
+    .nav-mobile {
+        display: flex;
+    }
+}
+
+.dark-theme .mobile-menu {
+    background: rgba(26, 26, 46, 0.95);
+}
+
+.dark-theme .mobile-nav-links a {
+    color: #e0e0e0;
+}
+
+.dark-theme .mobile-nav-links a:hover {
+    color: #87ceeb;
+}
+
+.dark-theme .hamburger-menu span {
+    background-color: #e0e0e0;
+}
+
+/* removed dark theme variants for close-mobile-menu */
+
+/* Better dark theme container styling for burger button */
+.dark-theme .hamburger-menu {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+.dark-theme .hamburger-menu:hover {
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.dark-theme .mobile-theme {
+    border-color: #e0e0e0;
+    color: #e0e0e0;
+}
+
+.dark-theme .mobile-theme:hover {
+    background: #e0e0e0;
+    color: #1a1a2e;
+}
