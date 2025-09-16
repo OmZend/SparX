@@ -10,7 +10,7 @@ const Header = () => {
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
-      document.body.classList.add('dark-theme');
+      document.documentElement.classList.add('dark-theme');
       setIsDarkMode(true);
     }
   }, []);
@@ -21,10 +21,10 @@ const Header = () => {
 
   const toggleTheme = () => {
     if (isDarkMode) {
-      document.body.classList.remove('dark-theme');
+      document.documentElement.classList.remove('dark-theme');
       localStorage.setItem('theme', 'light');
     } else {
-      document.body.classList.add('dark-theme');
+      document.documentElement.classList.add('dark-theme');
       localStorage.setItem('theme', 'dark');
     }
     setIsDarkMode(!isDarkMode);

@@ -18,6 +18,17 @@
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
 
+    <script>
+        (function() {
+            try {
+                var saved = localStorage.getItem('theme');
+                if (saved === 'dark') {
+                    document.documentElement.classList.add('dark-theme');
+                }
+            } catch (e) {}
+        })();
+    </script>
+
     <link rel="stylesheet" href="/src/index.css">
 </head>
 

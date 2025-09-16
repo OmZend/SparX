@@ -230,3 +230,73 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* Dark Mode Styles for Home Page */
+.dark-theme .home-page .hero {
+    color: #e0e0e0;
+}
+
+.dark-theme .home-page .hero h1 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.dark-theme .home-page .hero-subtitle {
+    opacity: 0.8;
+}
+
+.dark-theme .home-page .cta-button {
+    background: rgba(30, 136, 229, 0.9);
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #e0e0e0;
+}
+
+.dark-theme .home-page .cta-button:hover {
+    background: #1565c0;
+    box-shadow: 0 10px 30px rgba(30, 136, 229, 0.3);
+}
+
+.dark-theme .home-page .about {
+    background: #16213e;
+    color: #e0e0e0;
+}
+
+.dark-theme .home-page .about-text {
+    color: #e0e0e0;
+}
+
+.dark-theme .home-page .section-title {
+    color: #e0e0e0;
+}
+
+.dark-theme .home-page .stat-item {
+    background: rgba(102, 126, 234, 0.1);
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    color: #e0e0e0;
+}
+
+.dark-theme .home-page .stat-number {
+    color: #87ceeb;
+}
+
+.dark-theme .home-page .contact {
+    background: #16213e;
+    color: #e0e0e0;
+}
+
+.dark-theme .home-page .contact-item {
+    background: rgba(26, 26, 46, 0.8);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+.dark-theme .home-page .contact-item:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.dark-theme .home-page .contact-item h4 {
+    color: #b0b0b0;
+}
+
+.dark-theme .home-page .contact-item p {
+    color: #b0b0b0;
+}

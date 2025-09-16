@@ -95,7 +95,7 @@ const eventsData = {
     {
       id: "BGMI",
       name: "BGMI",
-      fee: 200,
+      fee: 50,
       time: "Sep 19 - 2:00 PM",
       description: "Battlegrounds Mobile India (BGMI) is an action-packed battle royale game where players fight for survival using strategy, skill, and teamwork in intense battlegrounds.",
       rules: [

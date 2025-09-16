@@ -206,16 +206,16 @@ const AdminDashboard = () => {
             </div>
 
             <div className="registrations-table-container">
-              <div className="fee-summary" style={{display:'flex', gap:'1rem', flexWrap:'wrap', marginBottom:'1rem'}}>
-                <div style={{background:'#fff', borderRadius:'8px', padding:'0.75rem 1rem', boxShadow:'0 2px 8px rgba(0,0,0,0.06)'}}>
+              <div className="fee-summary">
+                <div className="fee-chip">
                   <strong>Total Fee (All): </strong>
                   ₹{filteredRegistrations.reduce((sum, r) => sum + (Number(r.totalFee) || 0), 0)}
                 </div>
-                <div style={{background:'#fff', borderRadius:'8px', padding:'0.75rem 1rem', boxShadow:'0 2px 8px rgba(0,0,0,0.06)'}}>
+                <div className="fee-chip">
                   <strong>Total Fee (Cash): </strong>
                   ₹{filteredRegistrations.filter(r => (r.paymentMethod||'').toLowerCase()==='cash').reduce((sum, r) => sum + (Number(r.totalFee) || 0), 0)}
                 </div>
-                <div style={{background:'#fff', borderRadius:'8px', padding:'0.75rem 1rem', boxShadow:'0 2px 8px rgba(0,0,0,0.06)'}}>
+                <div className="fee-chip">
                   <strong>Total Fee (UPI): </strong>
                   ₹{filteredRegistrations.filter(r => (r.paymentMethod||'').toLowerCase()==='upi').reduce((sum, r) => sum + (Number(r.totalFee) || 0), 0)}
                 </div>
