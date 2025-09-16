@@ -1,0 +1,66 @@
+{
+  "name": "Sparx Engineers Week 2025",
+  "short_name": "Sparx 2025",
+  "description": "Official website for Sparx Engineers Week 2025 organized by EMAS Committee",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1E88E5",
+  "theme_color": "#0A2540",
+  "orientation": "portrait-primary",
+  "categories": ["education", "events", "engineering"],
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "favicon.png", 
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshot-mobile.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Register for Events",
+      "short_name": "Register",
+      "description": "Quick registration for Sparx events",
+      "url": "/registration",
+      "icons": [
+        {
+          "src": "favicon.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "View Schedule",
+      "short_name": "Schedule",
+      "description": "View complete event schedule",
+      "url": "/schedule",
+      "icons": [
+        {
+          "src": "favicon.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "features": [
+    "offline_support",
+    "push_notifications",
+    "background_sync"
+  ]
+}
