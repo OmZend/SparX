@@ -8,7 +8,7 @@ Here is a complete README description for your project. You can copy and paste t
 
 A full-stack web application built to streamline event management and participant registration for the Sparx 2025 technical festival. This platform features a dynamic, public-facing events page and a secure, feature-rich admin dashboard for comprehensive data management.
 
-**Live Demo:** `[Link to your deployed website]`
+**Live Demo:** `(https://sparx-2025.web.app/)`
 
 -----
 
