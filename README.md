@@ -1,147 +1,97 @@
-# Sparx - Engineers Week 2025
+Of course. A great GitHub README is your project's front door. It should be clear, concise, and visually appealing to attract other developers and recruiters.
 
-A modern, responsive website for the Sparx Engineers Week event organized by the EMAS Committee. This project showcases technical and non-technical events with a beautiful UI and interactive features.
+Here is a complete README description for your project. You can copy and paste this directly into your `README.md` file.
+
+-----
+
+# Sparx 2025 - Event Management Platform ✨
+
+A full-stack web application built to streamline event management and participant registration for the Sparx 2025 technical festival. This platform features a dynamic, public-facing events page and a secure, feature-rich admin dashboard for comprehensive data management.
+
+**Live Demo:** `[Link to your deployed website]`
+
+-----
+
+## 📸 Project Showcase
+
+A quick look at the main features of the application, including the events page, details modal, and the admin dashboard with its light and dark modes.
+
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/d68fff65-91fa-43d3-90ed-8a7b3dfefa9e" />
+
+
+-----
 
 ## 🚀 Features
 
-- **Responsive Design**: Works seamlessly on all devices
-- **Dark/Light Theme Toggle**: User preference for viewing experience
-- **Interactive Registration**: Dedicated registration page with form
-- **Smooth Animations**: Engaging user experience with scroll animations
-- **Modern UI**: Clean, professional design with gradient backgrounds
-- **Event Management**: Comprehensive event listing and scheduling
-- **Dynamic Content**: Events and schedule rendered from data files
-- **Modular Architecture**: Separated concerns for easy maintenance
-- **Multi-Page Structure**: Dedicated pages for different functionalities
+This platform comes with a wide range of features for both users and administrators:
 
-## 📁 Project Structure
+  * **Dynamic Events Page:** Browse all technical and non-technical events with a clean, modern UI.
+  * **Event Filtering:** Users can easily filter events by category (All, Technical, Non-Technical).
+  * **Interactive Details Modal:** Click on any event to view detailed information, including rules, coordinators, and schedules in a sleek pop-up modal.
+  * **Secure Admin Dashboard:** A private, login-protected route for administrators to manage all registrations.
+  * **Real-time Data Management:** Utilizes Firebase Firestore to display, create, update, and delete registration data in real-time.
+  * **Powerful Search & Filter:** Admins can instantly search for participants by name, email, or college and filter the entire list by event.
+  * **CRUD Operations:** Full capabilities to approve, edit, or delete participant registrations directly from the dashboard.
+  * **CSV Data Export:** A one-click feature to export the current view of registration data to a `.csv` file for offline analysis and reporting.
+  * **Responsive Design:** Fully responsive layout ensuring a seamless experience on desktops, tablets, and mobile devices.
+  * **Light & Dark Mode:** A theme-toggle for the admin dashboard to switch between light and dark modes for user comfort.
 
-```
-Courser/
-├── index.html              # Main homepage with events overview
-├── schedule.html           # Dedicated schedule page with day filters
-├── registration.html       # Dedicated registration form page
-├── styles.css              # All CSS styling and themes
-├── script.js               # Core features (theme toggle, animations)
-├── events-data.js          # Events and schedule data configuration
-├── registration.js         # Registration form management
-├── events-renderer.js      # Dynamic rendering of events/schedule
-└── README.md               # Project documentation
-```
+-----
 
-## 🌐 **Page Structure**
+## 🛠️ Tech Stack
 
-### 1. **`index.html`** - Main Homepage
-- **Hero section** with call-to-action
-- **About section** with event statistics
-- **Events overview** with technical and non-technical categories
-- **Call-to-action buttons** linking to schedule and registration pages
-- **Contact information** for the EMAS Committee
+The project leverages a modern, efficient, and scalable technology stack.
 
-### 2. **`schedule.html`** - Dedicated Schedule Page
-- **Complete event timeline** for all 5 days
-- **Day filtering** (All Days, Day 1-5)
-- **Interactive schedule** with hover effects
-- **Schedule summary** with statistics
-- **Navigation** back to main page
+| Category      | Technology                                                                                                                                                                                              |
+|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Frontend** | **React**, **React Router**, **HTML5**, **CSS3** |
+| **Backend** | **Firebase** (**Authentication** for secure login, **Firestore** as a real-time NoSQL database)                                                                                                           |
+| **Dev Tools** | **Vite**, **Git & GitHub** |
 
-### 3. **`registration.html`** - Dedicated Registration Page
-- **Events preview** showing available technical and non-technical events
-- **Comprehensive registration form** with all required fields
-- **Form validation** and success messages
-- **Responsive design** for all devices
-- **Navigation** back to main page
+-----
 
-## 🎯 **Key Benefits of Separation**
+## ⚙️ Getting Started
 
-### **Better User Experience**
-- **Focused content** - each page has a single purpose
-- **Faster loading** - smaller, focused pages
-- **Better navigation** - clear separation of concerns
-- **Mobile friendly** - easier to navigate on small screens
+To get a local copy up and running, follow these simple steps.
 
-### **Easier Maintenance**
-- **Modular code** - each page can be updated independently
-- **Clear structure** - developers know exactly where to make changes
-- **Reusable components** - shared CSS and JavaScript files
-- **Easier debugging** - isolate issues to specific pages
+### Prerequisites
 
-### **SEO Benefits**
-- **Better indexing** - search engines can understand page purposes
-- **Focused keywords** - each page targets specific content
-- **Improved navigation** - better internal linking structure
+Make sure you have Node.js and npm installed on your machine.
 
-## 🚀 **Getting Started**
+  * npm
+    ```sh
+    npm install npm@latest -g
+    ```
 
-1. **Open `index.html`** in your browser to view the main page
-2. **Click "View Full Schedule"** to see the detailed schedule page
-3. **Click "Register Now"** to access the registration form
-4. **Use the navigation menu** to move between pages
-5. **Toggle theme** using the dark/light mode button
+### Installation
 
-## 🛠 **Technical Details**
+1.  **Clone the repository:**
+    ```sh
+    git clone https://github.com/your-username/your-repo-name.git
+    ```
+2.  **Navigate to the project directory:**
+    ```sh
+    cd your-repo-name
+    ```
+3.  **Install NPM packages:**
+    ```sh
+    npm install
+    ```
+4.  **Set up your Firebase configuration:**
+      * Create a `.env` file in the root of your project.
+      * Add your Firebase project configuration keys as shown in `.env.example`.
+    <!-- end list -->
+    ```env
+    VITE_FIREBASE_API_KEY="your_api_key"
+    VITE_FIREBASE_AUTH_DOMAIN="your_auth_domain"
+    VITE_FIREBASE_PROJECT_ID="your_project_id"
+    VITE_FIREBASE_STORAGE_BUCKET="your_storage_bucket"
+    VITE_FIREBASE_MESSAGING_SENDER_ID="your_sender_id"
+    VITE_FIREBASE_APP_ID="your_app_id"
+    ```
+5.  **Run the development server:**
+    ```sh
+    npm run dev
+    ```
 
-### **Frontend Technologies**
-- **HTML5** - Semantic markup and structure
-- **CSS3** - Modern styling with Flexbox, Grid, and animations
-- **Vanilla JavaScript** - No frameworks, pure functionality
-- **Responsive Design** - Mobile-first approach
-
-### **File Organization**
-- **Data Layer** (`events-data.js`) - Centralized event information
-- **Business Logic** (`registration.js`, `events-renderer.js`) - Core functionality
-- **Presentation Layer** (HTML files) - User interface
-- **Styling Layer** (`styles.css`) - Visual design and themes
-
-### **Browser Compatibility**
-- **Modern browsers** (Chrome, Firefox, Safari, Edge)
-- **Mobile devices** (iOS Safari, Chrome Mobile)
-- **Responsive design** for all screen sizes
-
-## 📱 **Responsive Features**
-
-- **Mobile-first design** approach
-- **Flexible layouts** using CSS Grid and Flexbox
-- **Touch-friendly** navigation and buttons
-- **Optimized typography** for all screen sizes
-- **Smooth animations** that work on mobile devices
-
-## 🎨 **Design Features**
-
-- **Modern gradient backgrounds** with smooth transitions
-- **Card-based layouts** for easy content organization
-- **Consistent color scheme** throughout all pages
-- **Professional typography** with proper hierarchy
-- **Interactive elements** with hover effects and animations
-
-## 🔧 **Customization**
-
-### **Adding New Events**
-1. Edit `events-data.js` to add new events
-2. Events automatically appear on all pages
-3. No need to modify HTML files
-
-### **Changing Styles**
-1. Modify `styles.css` for visual changes
-2. All pages automatically inherit updates
-3. Consistent styling across the entire site
-
-### **Adding New Pages**
-1. Create new HTML file following the existing structure
-2. Include the shared CSS and JavaScript files
-3. Add navigation links in the header
-
-## 📞 **Support**
-
-For technical support or questions about the website:
-- **Email**: tech@emas.edu
-- **Phone**: +91 98765 43211
-
-## 📄 **License**
-
-This project is created for the EMAS Committee and Engineers Week 2025.
-
----
-
-**Built with ❤️ for the EMAS Committee and Engineers Week 2025**
-
+The application should now be running on `http://localhost:5173/`.
