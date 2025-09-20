@@ -16,7 +16,8 @@ A full-stack web application built to streamline event management and participan
 
 A quick look at the main features of the application, including the events page, details modal, and the admin dashboard with its light and dark modes.
 
-<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/d68fff65-91fa-43d3-90ed-8a7b3dfefa9e" />
+<img width="1361" height="703" alt="Screenshot (11)" src="https://github.com/user-attachments/assets/5cc2247d-8ced-49cf-9390-82053f213ae9" />
+
 
 
 -----
